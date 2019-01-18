@@ -2,14 +2,17 @@
 
 Start by creating your project folder
 
-```cd into your project folder
+```
+cd into your project folder
 In your terminal, run 'npm init' or 'npm init -y'
 ```
 
 Make sure that your entry point is server.js. If you run 'npm init -y', you will have to change the entry point in your package.json
 
 Run 
-```npm i express mongoose hbs method-override'```
+```
+npm i express mongoose hbs method-override'
+```
 in your project folder
 
 This will install your dependencies for the MEHN stack application.
@@ -22,7 +25,8 @@ In your server file, require express, invoke an instance of express. Set your po
 
 
 
-```const express = require('express')
+```
+const express = require('express')
 const app = express()
 
 const PORT = process.env.PORT || 3000
@@ -40,7 +44,8 @@ Create a folder for your controllers, routes, models, db, and views.
 
 Now, let's set up our database and send it some dummy data. In your db folder, create a connection.js file. This is where we want to connect to our database using mongoose. Here we want to require mongoose and connect to our database. We use the mongoose.connect method to connect to our database. It might look something like this: 
 
-```mongoose.connect("mongodb://localhost/your-data-base-name").then(() => {
+```
+mongoose.connect("mongodb://localhost/your-data-base-name").then(() => {
     console.log("MONGODB is now connected")
 })
 ```
@@ -49,7 +54,8 @@ Don't forget to export mongoose here.
 
 Now we need to create a schema and model for our application. If we were to set up a model for cars, our schema might look something like this: 
 
-```const Car = new Schema({
+```
+const Car = new Schema({
     make: String,
     model: String,
     year: Number,
@@ -64,7 +70,8 @@ Refer back to previous projects for a full example of a model and the syntax. We
 
 Now that we have connected to our database and created a blue print for our cars, we need to send some seed data to test that it is working. In your db directory, create a seeds.js file. In our new seeds file, we need to require our cars model. Once we do that, we need to use mongoose methods to create and send that data to our database. It might looks something like this:
 
-```const Car = require('../models/Car')
+```
+const Car = require('../models/Car')
 
 Car.deleteMany({})
     .then(() => {
@@ -127,7 +134,8 @@ The last step is to create our carController. In your controllers folder, create
 
 Here we import our Car model and define a variable called carController which will be an object in which we will write our controller actions. Let's get started with our index action.
 
-```const Car = require('../models/Car')
+```
+const Car = require('../models/Car')
 
 const carController = {
     index: (req, res) => {
